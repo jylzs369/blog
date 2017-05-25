@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+}
+
+a {
+    color: #773460;
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+input, textarea, select {
+    border: 1px solid #773460;
+    outline: none;
+}
+
+input:focus, textarea:focus,select:focus {}
+
+header {
+    padding: 1em;
+    flex: 1 1 100%;
+    color: #773460;
+    border-bottom: 1px solid #773460;
+}
+
+.nav {
+    flex: 1;
+    align-content: flex-start;
+    justify-content: center;
+    padding: 1em;
+}
+
+.nav li {
+    line-height: 2em;
+}
+
+.nav li a {
+    display: block;
+    text-align: center;
+}
+
+.nav li a.active {
+    border-right: 1px solid #773460;
+    border-bottom: 1px solid #773460;
+}
+
+main {
+    flex: 6;
+    padding: 1em;
+}
+
+.btn {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 3em;
+    padding: .3em .5em;
+}
