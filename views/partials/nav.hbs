@@ -1,0 +1,19 @@
+<nav class="nav">
+    <ul>
+        {{#if home}}
+        <li><a title="主页" class="active" href="/">Home</a></li>
+        {{else}}
+        <li><a title="主页" href="/">Home</a></li>
+        {{/if}}
+        {{#if login}}
+        <li><a title="登录" class="active" href="/login">Login</a></li>
+        {{else}}
+        <li><a title="登录" href="/login">Login</a></li>
+        {{/if}}
+        {{#if register}}
+        <li><a title="注册" class="active" href="/register">Register</a></li>
+        {{else}}
+        <li><a title="注册" href="/register">Register</a></li>
+        {{/if}}
+    </ul>
+</nav>
