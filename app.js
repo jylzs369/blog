@@ -23,9 +23,11 @@ app.use(flash());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+// 解析application/json
 app.use(bodyParser.json());
+// 解析application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('keyboard'));
 app.use(session({
     secret: settings.cookieSecret,
     key: settings.db,
