@@ -1,4 +1,5 @@
-var mongodb = require('./db');
+var mongo = require('./mongo'),
+    assert = require('assert');
 
 function User(user) {
     this.name = user.name;
@@ -12,50 +13,35 @@ User.prototype.save = function(callback) {
         password: this.password,
         email: this.email
     }
-
-    mongodb.open(function(err, db) {
-        if (err) {
-            return callback(err);
-        }
-        db.collection('users', function(err, collection) {
-            if (err) {
-                mongodb.close();
-                return callback(err);
-            }
-            collection.insert(user, {
-                safe: true
-            }, function(err, user) {
-                mongodb.close();
-                if (err) {
-                    return callback(err);
-                }
-                callback(null, user[0]);
-            })
-        })
-    })
+    mongo.client.connect(mongo.url, function (err, db) {
+        assert.equal(null, err);
+        insertUser(db, user, function () {
+            db.close();
+        });
+    });
+}
+User.get = function(name, callback) {
+    mongo.client.connect(mongo.url, function (err, db) {
+        assert.equal(null, err);
+        findUser(db, {name: name}, function () {
+            db.close();
+        });
+    });
 }
 
-User.get = function(name, callback) {
-    mongodb.open(function(err, db) {
-        if (err) {
-            return callback(err);
-        }
-        db.collection('users', function(err, collection) {
-            if (err) {
-                mongodb.close();
-                return callback(err);
-            }
-            collection.findOne({
-                name: name
-            }, function(err, user) {
-                mongodb.close();
-                if (err) {
-                    return callback(err);
-                }
-                callback(null, user);
-            })
-        })
-    })
+
+function insertUser(db, data, callback) {
+    var users = db.collection('users');
+    users.insert(data, function(err, result) {
+        callback(err);
+    });
+}
+
+function findUser(db, data, callback) {
+    var users = db.collection('users');
+    users.findOne(data, function(err, result) {
+        callback(err);
+    });
 }
 
 module.exports = User;
