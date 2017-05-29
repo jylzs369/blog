@@ -1,5 +1,6 @@
 var register = require('./register.js'),
-    login = require('./login.js');
+    login = require('./login.js'),
+    publish = require('./publish.js');
 
 module.exports = function(app) {
     /* GET home page. */
@@ -19,11 +20,11 @@ module.exports = function(app) {
         .post('/login', function(req, res, next) {
             login.post(req, res, next);
         })
-        .get('/post', function(req, res, next) {
-            res.render('post', { title: '发表', post: true });
+        .get('/publish', function(req, res, next) {
+            publish.get(req, res, next);
         })
-        .post('/post', function(req, res, next) {
-
+        .post('/publish', function(req, res, next) {
+            publish.post(req, res, next);
         })
         .get('/logout', function(req, res, next) {
             req.session.user = null;
