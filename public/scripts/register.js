@@ -5,17 +5,23 @@ $(function () {
         var data = {
             name: $('#name').val(),
             password: $('#password').val(),
+            passwordRepeat: $('#passwordRepeat').val(),
             email: $('#email').val()
         };
         $.ajax({ 
             url: '/register',
             type: 'POST',
             data: data,
-            success: function(data){
-                alert(data);
+            success: function(response){
+                if (response.status === 'success') {
+                    alert(response.message);
+                    location.href = '/';
+                } else {
+                    alert(response.message);
+                }
             },
-            error: function(data){ 
-                alert(data);
+            error: function(response){
+                alert(response);
             }
         }); 
     })
