@@ -6,10 +6,10 @@
         <li><a title="主页" href="/">Home</a></li>
         {{/if}}
         {{#if user}}
-        {{#if post}}
-        <li><a title="发表" class="active" href="/post">Post</a></li>
+        {{#if publish}}
+        <li><a title="发表" class="active" href="/publish">Publish</a></li>
         {{else}}
-        <li><a title="发表" href="/post">Post</a></li>
+        <li><a title="发表" href="/publish">Publish</a></li>
         {{/if}}
         {{#if logout}}
         <li><a title="登出" class="active" href="/logout">Logout</a></li>
