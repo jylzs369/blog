@@ -5,6 +5,18 @@
         {{else}}
         <li><a title="主页" href="/">Home</a></li>
         {{/if}}
+        {{#if user}}
+        {{#if post}}
+        <li><a title="发表" class="active" href="/post">Post</a></li>
+        {{else}}
+        <li><a title="发表" href="/post">Post</a></li>
+        {{/if}}
+        {{#if logout}}
+        <li><a title="登出" class="active" href="/logout">Logout</a></li>
+        {{else}}
+        <li><a title="登出" href="/logout">Logout</a></li>
+        {{/if}}
+        {{else}}
         {{#if login}}
         <li><a title="登录" class="active" href="/login">Login</a></li>
         {{else}}
@@ -14,6 +26,7 @@
         <li><a title="注册" class="active" href="/register">Register</a></li>
         {{else}}
         <li><a title="注册" href="/register">Register</a></li>
+        {{/if}}
         {{/if}}
     </ul>
 </nav>
