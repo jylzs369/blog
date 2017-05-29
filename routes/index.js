@@ -1,54 +1,33 @@
-var crypto = require('crypto'),
-    User = require('../models/user.js');
+var register = require('./register.js'),
+    login = require('./login.js');
 
 module.exports = function(app) {
     /* GET home page. */
     app.get('/', function(req, res, next) {
-            res.render('index', { title: '主页', home: true });
+            var user = req.session.user || null;
+            res.render('index', { title: '主页', home: true, user: user });
         })
         .get('/register', function(req, res, next) {
-            res.render('register', { title: '注册', register: true });
+            register.get(req, res, next);
         })
         .post('/register', function(req, res, next) {
-            var user = {
-                name: req.body.name,
-                password: req.body.password,
-                email: req.body.email
-            }
-            if (!user.name) {
-                res.send('姓名不能为空');
-                return;
-            }
-            if (!user.password) {
-                res.send('密码不能为空');
-                return;
-            }
-            if (!user.email) {
-                res.send('邮箱不能为空');
-                return;
-            }
-            var newUser = new User(user);
-            newUser.save(function (err) {
-                if (err) {
-                    console.log(err)
-                    return;
-                }
-                res.send('success');
-            });
+            register.post(req, res, next);
         })
-        .get('/login', function(reg, res, next) {
-            res.render('login', { title: '登录', login: true });
+        .get('/login', function(req, res, next) {
+            login.get(req, res, next);
         })
-        .post('/login', function(reg, res, next) {
+        .post('/login', function(req, res, next) {
+            login.post(req, res, next);
+        })
+        .get('/post', function(req, res, next) {
+            res.render('post', { title: '发表', post: true });
+        })
+        .post('/post', function(req, res, next) {
 
         })
-        .get('/post', function(reg, res, next) {
-            res.render('post', { title: '发表', currPage: 'post' });
-        })
-        .post('/post', function(reg, res, next) {
-
-        })
-        .get('/logout', function(reg, res, next) {
-
+        .get('/logout', function(req, res, next) {
+            req.session.user = null;
+            req.flash('success', '登出成功');
+            res.redirect('/');
         });
 };
