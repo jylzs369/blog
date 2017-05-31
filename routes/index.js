@@ -6,7 +6,8 @@ var authority = require('./authority.js'),
 
 module.exports = function(app) {
     /* GET home page. */
-    app.get('/', function(req, res, next) {
+    app
+        .get('/', function(req, res, next) {
             home.get(req, res, next);
         })
         // 检查登录状态，已登录则跳转到首页
