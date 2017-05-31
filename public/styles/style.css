@@ -21,10 +21,21 @@ a {
 ul, li {
     list-style: none;
 }
-
+label {
+    vertical-align: top;
+}
 input, textarea, select {
     border: 1px solid #773460;
     outline: none;
+    padding: .3em .5em;
+}
+button {
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: #ccc;
 }
 
 input:focus, textarea:focus,select:focus {}
@@ -35,7 +46,12 @@ header {
     color: #773460;
     border-bottom: 1px solid #773460;
 }
+main {
+    flex: 6;
+    padding: 1em;
+}
 
+/* navigation */
 .nav {
     flex: 1;
     align-content: flex-start;
@@ -53,18 +69,45 @@ header {
 }
 
 .nav li a.active {
-    border-right: 1px solid #773460;
-    border-bottom: 1px solid #773460;
+    color: #fff;
+    background: #773460;
 }
 
-main {
-    flex: 6;
-    padding: 1em;
-}
-
+/* button */
 .btn {
     box-sizing: border-box;
     display: inline-block;
-    width: 3em;
+    min-width: 5em;
+    font-size: 100%;
+    color: #fff;
     padding: .3em .5em;
+    background: #773460;
+    cursor: pointer;
+}
+.btn:hover {
+    opacity: .9;
+}
+
+.btn-confirm {
+    background: #96E650;
+}
+.btn-cancel {
+    background: #FADC3C;
+}
+
+/* form */
+.form .form-line {
+    margin: 1em 0;
+}
+.form .form-line input {
+    height: 3em;
+    line-height: 3;
+}
+.form .form-line textarea {
+    min-width: 20em;
+    max-width: 100em;
+    width: 30em;
+    height: 10em;
+    line-height: 2em;
+    resize: none;
 }

@@ -4,6 +4,6 @@
 - primary - #662E91
 - link -
 - highlight - #E33460
-- success - #C8E66E
-- warning - #FAF06E
+- success - #96E650
+- warning - #FADC3C
 - text - #333
