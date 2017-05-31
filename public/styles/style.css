@@ -17,6 +17,10 @@ a {
     color: #773460;
     text-decoration: none;
 }
+span {
+    font-size: 100%;
+    font-weight: normal;
+}
 
 ul, li {
     list-style: none;
@@ -95,6 +99,34 @@ main {
     background: #FADC3C;
 }
 
+/* article */
+article {
+    width: 70%;
+    padding-bottom: .5em;
+    margin-bottom: 1em;
+}
+.article {
+    padding-left: .5em;
+}
+.article .title {
+    color: #773460;
+    font-size: 22px;
+    border-left: .2em solid #773460;
+    padding-left: .5em;
+    margin: .5em  0 .5em -.7em;
+}
+.article .label span{
+    margin-right: 1em;
+}
+.article .time {
+    font-size: 14px;
+    color: #ccc;
+}
+.article .brief {
+    font-size: 14px;
+    color: #333;
+    margin-top: .5em;
+}
 /* form */
 .form .form-line {
     margin: 1em 0;
