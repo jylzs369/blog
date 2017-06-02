@@ -100,12 +100,10 @@ main {
 }
 
 /* article */
-article {
+.article {
     width: 70%;
     padding-bottom: .5em;
     margin-bottom: 1em;
-}
-.article {
     padding-left: .5em;
 }
 .article .title {
@@ -126,6 +124,21 @@ article {
     font-size: 14px;
     color: #333;
     margin-top: .5em;
+}
+.article-detail .title {
+    color: #773460;
+    font-size: 28px;
+}
+.article-detail .label {
+    margin-top: 1em;
+}
+.article-detail .label span{
+    margin-right: 1em;
+}
+.article-detail .brief {
+    font-size: 14px;
+    color: #333;
+    margin-top: 1em;
 }
 /* form */
 .form .form-line {
