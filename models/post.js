@@ -1,5 +1,5 @@
 var mongo = require('./mongo'),
-    utils = require('../public/scripts/utils.js'),
+    utils = require('./utils'),
     assert = require('assert');
 
 function Post(post) {
@@ -12,25 +12,25 @@ function Post(post) {
 Post.prototype.save = function(callback) {
     var now = new Date().getTime();
     // 要存入数据库的用户文档
-    utils.generateId('articleId');
-    console.log(utils.generatedId)
     var post = {
-        _id: utils.generateId('articleId'),
         title: this.title,
         author: this.author,
         time: now,
         content: this.content
-    }
-    // 连接数据库，执行写入函数
-    mongo.client.connect(mongo.url, function (err, db) {
-        assert.equal(null, err);
-        insertPost(db, post, callback);
+    };
+    utils.generateId('articleId', 'articleIdCounter', function (err, result) {
+        post['_id'] = result;
+        // 连接数据库，执行写入函数
+        mongo.client.connect(mongo.url, function (err, db) {
+            assert.equal(null, err);
+            insertPost(db, post, callback);
+        });
     });
 }
 
 Post.article = function(id, callback) {
     var data = {
-        _id : id
+        '_id' : id
     }
     // 连接数据库。执行读取函数s
     mongo.client.connect(mongo.url, function (err, db) {
