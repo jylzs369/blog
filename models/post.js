@@ -69,7 +69,7 @@ function findOnePost(db, data, callback) {
 // 查找用户所有文章函数
 function findPosts(db, data, callback) {
     var posts = db.collection('posts');
-    posts.find(data).toArray(function (err, result) {
+    posts.find(data).sort({time: -1}).toArray(function (err, result) {
         db.close();
         callback(err, result);
     });
