@@ -100,6 +100,9 @@ main {
 }
 
 /* article */
+article {
+    width: 100%;
+}
 .article {
     width: 70%;
     padding-bottom: .5em;
@@ -120,7 +123,7 @@ main {
     font-size: 14px;
     color: #ccc;
 }
-.article .brief {
+.article .abstract {
     font-size: 14px;
     color: #333;
     margin-top: .5em;
@@ -135,7 +138,7 @@ main {
 .article-detail .label span{
     margin-right: 1em;
 }
-.article-detail .brief {
+.article-detail .content {
     font-size: 14px;
     color: #333;
     margin-top: 1em;
