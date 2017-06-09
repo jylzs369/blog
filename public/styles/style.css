@@ -151,6 +151,7 @@ article {
     min-width: 2em; 
     display: inline-block;
     margin-top: .5em;
+    margin-right: .5em;
 }
 .form .form-line input {
     height: 3em;
@@ -165,7 +166,7 @@ article {
     resize: none;
 }
 .form .form-line button {
-    margin-left: 2.3em;
+    margin-left: 2.7em;
 }
 
 
