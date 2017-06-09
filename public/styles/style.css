@@ -95,7 +95,7 @@ main {
 .btn-confirm {
     background: #96E650;
 }
-.btn-cancel {
+.btfn-cancel {
     background: #FADC3C;
 }
 
@@ -147,6 +147,11 @@ article {
 .form .form-line {
     margin: 1em 0;
 }
+.form .form-line label {
+    min-width: 2em; 
+    display: inline-block;
+    margin-top: .5em;
+}
 .form .form-line input {
     height: 3em;
     line-height: 3;
@@ -158,4 +163,7 @@ article {
     height: 10em;
     line-height: 2em;
     resize: none;
+}
+.form .form-line button {
+    margin-left: 2.3em;
 }
