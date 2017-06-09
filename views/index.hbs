@@ -1,5 +1,6 @@
 <main>
     <section class="article">
+        {{#if posts}}
         {{# each posts}}
         <article>
             <h3 class="title"><a href="/article/{{_id}}">{{title}}</a></h3>
@@ -7,5 +8,8 @@
             <p class="abstract">{{content}}</p>
         </article>
         {{/each}}
+        {{else}}
+        <p class="note">还没有文章，赶紧去发布一篇吧~</p>
+        {{/if}}
     </section>
 </main>
