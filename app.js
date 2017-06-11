@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
 var hbs = require('hbs');
+var multer = require('multer');
 var MongoStore = require('connect-mongo')(session);
 
 var settings = require('./settings');
@@ -25,6 +26,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 // 解析application/json
 app.use(bodyParser.json());
+app.use(multer({dest: './public/images'}));
 // 解析application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('keyboard'));
