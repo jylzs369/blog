@@ -1,5 +1,6 @@
 var mongo = require('./mongo'),
     utils = require('./utils'),
+    markdown = require('markdown').markdown,
     assert = require('assert');
 
 function Post(post) {
@@ -71,6 +72,9 @@ function findPosts(db, data, callback) {
     var posts = db.collection('posts');
     posts.find(data).sort({time: -1}).toArray(function (err, result) {
         db.close();
+        result.forEach(function (post) {
+            post.content = markdown.toHTML(post.content);
+        })
         callback(err, result);
     });
 }

@@ -3,9 +3,9 @@
         {{#if posts}}
         {{# each posts}}
         <article>
-            <h3 class="title"><a href="/article/{{_id}}">{{title}}</a></h3>
-            <div class="label"><span class="author">{{../user.name}}</span><span class="time">{{time}}</span></div>
-            <p class="abstract">{{content}}</p>
+            <h3 class="title"><a href="/article/{{ _id }}">{{ title }}</a></h3>
+            <div class="label"><span class="author">{{ ../user.name }}</span><span class="time">{{ time }}</span></div>
+            <p class="abstract">{{{ content }}}</p>
         </article>
         {{/each}}
         {{else}}
