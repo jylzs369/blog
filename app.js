@@ -14,6 +14,7 @@ var settings = require('./settings');
 var routes = require('./routes/index');
 
 var app = express();
+var upload = multer({dest:'./public/images'}).array();
 
 // view engine setup
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
@@ -26,7 +27,6 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 // 解析application/json
 app.use(bodyParser.json());
-app.use(multer({dest: './public/images'}));
 // 解析application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('keyboard'));
