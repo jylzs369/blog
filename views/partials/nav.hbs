@@ -11,6 +11,11 @@
         {{else}}
         <li><a title="发表" href="/publish">Publish</a></li>
         {{/if}}
+        {{#if upload}}
+        <li><a title="上传" class="active" href="/upload">Upload</a></li>
+        {{else}}
+        <li><a title="上传" href="/upload">Upload</a></li>
+        {{/if}}
         {{#if logout}}
         <li><a title="登出" class="active" href="/logout">Logout</a></li>
         {{else}}
