@@ -169,6 +169,10 @@ article {
     margin-left: 2.7em;
 }
 
+input[type="file"] {
+    border: 1px solid #773460;
+    background: transparent;
+}
 
 .note {
     color: #773460;
