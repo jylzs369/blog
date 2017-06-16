@@ -1,5 +1,5 @@
 var multer = require('multer');
-var uploadFile = multer({ dest: './uplaods' });
+var uploadFile = multer({ dest: './public/images/' });
 
 var authority = require('./authority.js'),
     home = require('./home.js'),

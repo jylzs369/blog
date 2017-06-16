@@ -12,14 +12,12 @@ upload.post = function (req, res, next) {
         if (req.files[i].size == 0) {
             fs.unlinkSync(req.files[i].path);
         } else {
-            var path = './public/images/' + req.files[i].originalname;
+            var path = './public/images/uploads/' + req.files[i].originalname;
             fs.renameSync(req.files[i].path, path);
         }
     }
-    res.send({
-        'status': 'success',
-        'message': '上传成功'
-    });
+    req.flash('success', '发表成功');
+    res.redirect('/upload');
 }
 
 module.exports = upload;
