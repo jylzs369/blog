@@ -1,3 +1,6 @@
+var multer = require('multer');
+var uploadFile = multer({ dest: './uplaods' });
+
 var authority = require('./authority.js'),
     home = require('./home.js'),
     register = require('./register.js'),
@@ -66,7 +69,7 @@ module.exports = function (app) {
         .post('/upload', function (req, res, next) {
             authority.isLogout(req, res, next);
         })
-        .post('/upload', function (req, res, next) {
+        .post('/upload', uploadFile.array('upload'), function (req, res, next) {
             upload.post(req, res, next);
         })
         // 检查登录状态，未登录则跳转到登录页

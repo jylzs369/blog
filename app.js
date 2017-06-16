@@ -7,14 +7,12 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
 var hbs = require('hbs');
-var multer = require('multer');
 var MongoStore = require('connect-mongo')(session);
 
 var settings = require('./settings');
 var routes = require('./routes/index');
 
 var app = express();
-var upload = multer({dest:'./public/images'}).array();
 
 // view engine setup
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
