@@ -170,8 +170,18 @@ article {
 }
 
 input[type="file"] {
-    border: 1px solid #773460;
+    display: none;
     background: transparent;
+}
+
+input[type="file"] + label {
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    width: 20em;
+    font-size: 94.5%;
+    border: 1px solid #773460;
+    padding: .3em .5em;
 }
 
 .note {

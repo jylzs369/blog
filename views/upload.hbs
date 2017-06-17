@@ -1,6 +1,7 @@
 <main>
     <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="upload" multiple="multiple">
+        <input id="upload" type="file" name="upload" multiple="multiple">
+        <label for="upload">选择文件</label>
         <button type="submit" data-action="upload" class="btn">上传</button>
     </form>
 </main>
